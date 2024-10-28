@@ -19,7 +19,7 @@ import com.rancho_smart.ms_credenciales.entity.Credencial;
 import com.rancho_smart.ms_credenciales.service.CredencialService;
 
 @RestController
-@RequestMapping(path = "/credencial")
+@RequestMapping(path = "/credenciales")
 public class CredencialRESTController {
         @Autowired
     private CredencialService credencialService;
