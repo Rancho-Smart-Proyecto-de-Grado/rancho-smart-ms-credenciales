@@ -15,6 +15,9 @@ public class Credencial {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCredencial;
 
+    @Column(name = "ID_USUARIO")
+    private Long idUsuario;
+
     @Column(name = "USERNAME")
     private String username;
 
@@ -27,7 +30,8 @@ public class Credencial {
     public Credencial() {
     }
 
-    public Credencial(String username, String password, Rol rol) {
+    public Credencial(Long idUsuario, String username, String password, Rol rol) {
+        this.idUsuario = idUsuario;
         this.username = username;
         this.password = password;
         this.rol = rol;
@@ -63,6 +67,14 @@ public class Credencial {
 
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     
