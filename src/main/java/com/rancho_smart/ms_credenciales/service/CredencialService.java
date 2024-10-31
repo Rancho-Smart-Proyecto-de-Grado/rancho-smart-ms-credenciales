@@ -11,7 +11,8 @@ import com.rancho_smart.ms_credenciales.repository.CredencialRepository;
 
 @Service
 public class CredencialService {
-        @Autowired
+        
+    @Autowired
     private CredencialRepository credencialRepository;
 
     public List<Credencial> getCredenciales() {
@@ -28,5 +29,9 @@ public class CredencialService {
 
     public void deleteCredencial(Long id) {
         this.credencialRepository.deleteById(id);
+    }
+
+    public Optional<Credencial> getCredencialByUsuario(Long idUsuario){
+        return this.credencialRepository.findByIdUsuario(idUsuario);
     }
 }

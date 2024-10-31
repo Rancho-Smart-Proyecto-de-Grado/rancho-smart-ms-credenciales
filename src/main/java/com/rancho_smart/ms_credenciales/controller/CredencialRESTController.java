@@ -64,4 +64,11 @@ public class CredencialRESTController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
     }
+
+    @GetMapping(path = "/usuarios/{idUsuario}")
+    public ResponseEntity<Credencial> getCredencialByIdUsuario(@PathVariable Long idUsuario){
+        Optional<Credencial> credencial = this.credencialService.getCredencialByUsuario(idUsuario);
+        return credencial.map(ResponseEntity::ok)
+                         .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    } 
 }
