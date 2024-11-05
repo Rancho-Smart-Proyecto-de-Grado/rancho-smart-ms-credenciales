@@ -34,4 +34,8 @@ public class CredencialService {
     public Optional<Credencial> getCredencialByUsuario(Long idUsuario){
         return this.credencialRepository.findByIdUsuario(idUsuario);
     }
+
+    public Optional<Credencial> getCredencialByUsername(String username){
+        return this.credencialRepository.findByUsername(username);
+    }
 }

@@ -71,4 +71,11 @@ public class CredencialRESTController {
         return credencial.map(ResponseEntity::ok)
                          .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     } 
+
+    @GetMapping(path = "/usuarios/username/{username}")
+    public ResponseEntity<Credencial> getCredencialByUsername(@PathVariable String username){
+        Optional<Credencial> credencialUsername = this.credencialService.getCredencialByUsername(username);
+        return credencialUsername.map(ResponseEntity::ok)
+                                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
 }
